@@ -1,1 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img style="width: 40px; height: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Map_pin_icon.svg/752px-Map_pin_icon.svg.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+          
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Unidades
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/dashboard/unidades">Agregar Unidad</a>
+            <a class="dropdown-item" href="#">Ver Unidades</a>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Equipos
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/dashboard/equipos">Agregar equipos</a>
+            <a class="dropdown-item" href="#">Ver Equipos</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Perfil
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Ver Perfil</a>
+            <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>

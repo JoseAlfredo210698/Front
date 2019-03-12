@@ -9,16 +9,16 @@
                         </div>
                         <div class="form-group">
                             <input type="text" formControlName="username"  placeholder="USUARIO" class="form-control" name="username">
-                            <div *ngIf="submited && f.username.errors">
-                              <div *ngIf="f.username.errors.required">
+                            <div *ngIf="submited && formCheck.username.errors">
+                              <div *ngIf="formCheck.username.errors.required">
                                 Requiere username
                               </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="password" formControlName="password"  placeholder="PASSWORD" class="form-control" name="password">
-                            <div *ngIf="submited && f.password.errors">
-                              <div *ngIf="f.password.errors.required">
+                            <div *ngIf="submited && formCheck.password.errors">
+                              <div *ngIf="formCheck.password.errors.required">
                                 <label for="" class="msj">Requiere password</label>
                               </div>
                             </div>

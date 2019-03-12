@@ -1,3 +1,92 @@
-<p>
-  form-equipos works!
-</p>
+<div class="container">
+  <div class="row justify-content-center align-items-center" style="height:100vh">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="formEquipos" autocomplete="off">
+            <div class="form-group">
+              <input type="text" formControlName="Brand" placeholder="Marca" class="form-control" name="Brand">
+              <div *ngIf="submited && formCheck.Brand.errors">
+                <div *ngIf="formCheck.Brand.errors.required">
+                    <label for="" class="msj">Requiere Marca</label>                  
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" formControlName="Model" placeholder="Modelo" class="form-control" name="Model">
+              <div *ngIf="submited && formCheck.Model.errors">
+                <div *ngIf="formCheck.Model.errors.required">
+                  <label for="" class="msj">Requiere Modelo</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" formControlName="Type" placeholder="Tipo" class="form-control" name="Type">
+              <div *ngIf="submited && formCheck.Type.errors">
+                <div *ngIf="formCheck.Type.errors.required">
+                  <label for="" class="msj">Requiere Tipo</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>¿Es de tiempo real?</label><br>
+              <label>Si</label>
+              <input type="radio" formControlName="RealTime" name="RealTime" value="true">
+              <label>No</label>
+              <input type="radio" formControlName="RealTime" name="RealTime" value="false">
+              <div *ngIf="submited && formCheck.RealTime.errors">
+                  <div *ngIf="formCheck.RealTime.errors.required">
+                    <label for="" class="msj">Requerido</label>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" formControlName="Battery" placeholder="Batteryo" class="form-control" name="Battery">
+              <div *ngIf="submited && formCheck.Battery.errors">
+                <div *ngIf="formCheck.Battery.errors.required">
+                  <label for="" class="msj">Requiere Tipo de bateria</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" formControlName="ComunicationMethods" placeholder="ComunicationMethodso"
+                class="form-control" name="ComunicationMethods">
+              <div *ngIf="submited && formCheck.ComunicationMethods.errors">
+                <div *ngIf="formCheck.ComunicationMethods.errors.required">
+                  <label for="" class="msj">Requiere Métodos de comunicación</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="number" formControlName="Precision" placeholder="Precisiono" class="form-control"
+                name="Precision">
+              <div *ngIf="submited && formCheck.Precision.errors">
+                <div *ngIf="formCheck.Precision.errors.required">
+                  <label for="" class="msj">Requiere la precisión del dispositivo</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" formControlName="Unit" placeholder="Unito" class="form-control" name="Unit">
+              <div *ngIf="submited && formCheck.Unit.errors">
+                <div *ngIf="formCheck.Unit.errors.required">
+                  <label for="" class="msj">¿A que unidad se relaciona?</label>
+                </div>
+              </div>
+            </div>
+
+
+            <button type="button" id="toCreate" (click)="toCreate()" class="btn btn-primary ">Crear</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

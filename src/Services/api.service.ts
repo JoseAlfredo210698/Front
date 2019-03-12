@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class ApiService {
   api: string = API;
-
+  public auth: boolean = false
   constructor(private http: HttpClient) { }
 
   login(params: string): Observable<any> {
@@ -29,13 +29,27 @@ export class ApiService {
   }
 
   isAuthenticated(): boolean {
-    let user = JSON.parse(localStorage.getItem('user_data'));
-    console.log('User: ', user)
+    let user = JSON.parse(localStorage.getItem('userData'));
     if (user) {
-      return user['token'] ? true : false;
+      return user['token'] ? this.auth = true : this.auth = false;
     } else {
-      return false;
+      return this.auth = false;
     }
   }
+
+
+
+
+  toCreateUnit(params: string, token: any): Observable<any> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token
+      })
+    }
+    return this.http.post(`${this.api}unit/`, params, httpOptions)
+  }
+
 
 }

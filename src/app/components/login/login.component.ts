@@ -9,13 +9,12 @@ import { WebsocketService } from 'src/app/Services/websocket.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [WebsocketService]
 })
 export class LoginComponent implements OnDestroy, OnInit {
   formLogin: FormGroup;
   submited = false;
   datas: any = [];
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
@@ -23,8 +22,8 @@ export class LoginComponent implements OnDestroy, OnInit {
     public webSocket: WebsocketService
 
   ) {
-    
-    this.webSocket.getPosition()
+
+     //this.webSocket.getPosition()
 
     this.formLogin = this.formBuilder.group({
       username: ['', Validators.required],
@@ -41,22 +40,34 @@ export class LoginComponent implements OnDestroy, OnInit {
     localStorage.removeItem('token');
   }
 
+
+  sendLogin() {
+    this.submited = true;
+    if (this.formLogin.invalid) {
+      return;
+    }
+    this.getLogin()
+  }
+
+
+
   getLogin(): void {
-    this.api.login(this.formLogin.value).subscribe(
-      response => {
-        // console.log(response.data)
-        this.datas = response.data;
-        // localStorage.setItem('token', this.datas.token)
-      }
-    )
+    console.log('getLogin')
+    // this.api.login(this.formLogin.value).subscribe(
+    //   response => {
+    //     // console.log(response.data)
+    //     this.datas = response.data;
+    //     // localStorage.setItem('token', this.datas.token)
+    //   }
+    // )
 
     this.api.login(this.formLogin.value).subscribe(response => {
       if (response.token) {
         console.log('token: ', response)
         // let school = response.data[0].school[0];
         // delete response.data[0].school;
-        let user = Object.assign({ token: response.token });
-        localStorage.setItem('user_data', JSON.stringify(user));
+        let user = Object.assign({ token: response.token, data: response });
+        localStorage.setItem('userData', JSON.stringify(user));
         this.router.navigateByUrl('gps/unidades');
       } else {
         // if(response.message.email) this.toastr.warning(response.message.email);
@@ -68,18 +79,12 @@ export class LoginComponent implements OnDestroy, OnInit {
     });
   }
 
-  sendLogin() {
-    this.submited = true;
-    if (this.formLogin.invalid) {
-      return;
-    }
-    this.getLogin()
-  }
+
 
   ngOnDestroy(): void {
 
   }
 
-  get f() { return this.formLogin.controls }
+  get formCheck() { return this.formLogin.controls }
 
 }
