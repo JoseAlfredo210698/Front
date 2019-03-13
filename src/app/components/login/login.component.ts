@@ -23,7 +23,7 @@ export class LoginComponent implements OnDestroy, OnInit {
 
   ) {
 
-     //this.webSocket.getPosition()
+     this.webSocket.getPosition()
 
     this.formLogin = this.formBuilder.group({
       username: ['', Validators.required],

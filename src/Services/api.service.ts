@@ -16,8 +16,14 @@ const httpOptions = {
 })
 export class ApiService {
   api: string = API;
+  data: any
   public auth: boolean = false
+  
+  
+  customersObservable : Observable<[]>;
+  
   constructor(private http: HttpClient) { }
+
 
   login(params: string): Observable<any> {
     const httpOptions = {
@@ -37,11 +43,7 @@ export class ApiService {
     }
   }
 
-
-
-
-  toCreateUnit(params: string, token: any): Observable<any> {
-
+  updateProfile(params: string, token: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -49,6 +51,38 @@ export class ApiService {
       })
     }
     return this.http.post(`${this.api}unit/`, params, httpOptions)
+  }
+
+  async getProfile(params: any, token: any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token,
+      })
+    }
+    
+    return await this.http.get(`${this.api}unit/`,httpOptions)
+  }
+
+
+  toCreateUnit(params: string, token: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token
+      })
+    }
+    return this.http.post(`${this.api}unit/`, params, httpOptions)
+  }
+
+  toCreateDevice(params: string, token: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token
+      })
+    }
+    return this.http.post(`${this.api}register/device/`, params, httpOptions)
   }
 
 

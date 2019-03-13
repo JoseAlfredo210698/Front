@@ -40,6 +40,7 @@ export class FormUnidadesComponent implements OnInit {
       return;
     }
     this.formUnidades.value.User = [JSON.parse(localStorage.getItem('userData')).data.userId]
+    console.log(this.formUnidades.value)
     this.api.toCreateUnit(this.formUnidades.value, JSON.parse(localStorage.getItem('userData')).token ).subscribe(response => {
       console.log('Creacion de unidad: ', response)
       this.router.navigateByUrl('views/unidades');

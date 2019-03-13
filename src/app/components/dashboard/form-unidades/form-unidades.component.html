@@ -1,102 +1,102 @@
-<div class="container">
-    <div class="row justify-content-center align-items-center" style="height:100vh">
-      <div class="col-6">
-        <div class="card">
-          <div class="card-body">
-            <form [formGroup]="formUnidades" autocomplete="off">
-              <div class="form-group">
-                <input type="text" formControlName="LicensePlate" placeholder="Placa" class="form-control" name="LicensePlate">
-                <div *ngIf="submited && formCheck.LicensePlate.errors">
-                  <div *ngIf="formCheck.LicensePlate.errors.required">
-                      <label for="" class="msj">Requiere Placa</label>                  
+<div class="register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <img src="https://althoffautosales.com/wp-content/uploads/car-icon.png" alt="" />
+      <h3>Perfecto!!!</h3>
+      <p>Crea tus unidades</p>
+    </div>
+    <div class="col-md-9 register-right">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h3 class="register-heading">Registro de Unidad</h3>
+          <form [formGroup]="formUnidades" autocomplete="off">
+            <div class="row register-form">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" formControlName="LicensePlate" placeholder="Placa" class="form-control"
+                    name="LicensePlate">
+                  <div *ngIf="submited && formCheck.LicensePlate.errors">
+                    <div *ngIf="formCheck.LicensePlate.errors.required">
+                      <label for="" class="text-danger">Requiere Placa</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-  
-              <div class="form-group">
-                <input type="text" formControlName="Brand" placeholder="Marca" class="form-control" name="Brand">
-                <div *ngIf="submited && formCheck.Brand.errors">
-                  <div *ngIf="formCheck.Brand.errors.required">
-                    <label for="" class="msj">Requiere Marca</label>
-                  </div>
-                </div>
-              </div>
-  
-              <div class="form-group">
-                <input type="text" formControlName="Model" placeholder="Modelo" class="form-control" name="Model">
-                <div *ngIf="submited && formCheck.Model.errors">
-                  <div *ngIf="formCheck.Model.errors.required">
-                    <label for="" class="msj">Requiere Modelo</label>
-                  </div>
-                </div>
-              </div>
 
-  
-              <div class="form-group">
-                <input type="text" formControlName="IMEI" placeholder="IMEI" class="form-control" name="IMEI">
-                <div *ngIf="submited && formCheck.IMEI.errors">
-                  <div *ngIf="formCheck.IMEI.errors.required">
-                    <label for="" class="msj">Requiere Ime</label>
+                <div class="form-group">
+                  <input type="text" formControlName="Brand" placeholder="Marca" class="form-control" name="Brand">
+                  <div *ngIf="submited && formCheck.Brand.errors">
+                    <div *ngIf="formCheck.Brand.errors.required">
+                      <label for="" class="text-danger">Requiere Marca</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-  
-              <div class="form-group">
-                <input type="number" formControlName="Year" placeholder="Año"
-                  class="form-control" name="Year">
-                <div *ngIf="submited && formCheck.Year.errors">
-                  <div *ngIf="formCheck.Year.errors.required">
-                    <label for="" class="msj">Requiere Año</label>
+
+                <div class="form-group">
+                  <input type="text" formControlName="Model" placeholder="Modelo" class="form-control" name="Model">
+                  <div *ngIf="submited && formCheck.Model.errors">
+                    <div *ngIf="formCheck.Model.errors.required">
+                      <label for="" class="text-danger">Requiere Modelo</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-  
-              <div class="form-group">
-                <input type="number" formControlName="kilometers" placeholder="Kilómetros" class="form-control"
-                  name="kilometers">
-                <div *ngIf="submited && formCheck.kilometers.errors">
-                  <div *ngIf="formCheck.kilometers.errors.required">
-                    <label for="" class="msj">Requiere KILÓMETROS</label>
-                  </div>
-                </div>
-              </div>
 
 
                 <div class="form-group">
-                    <input type="number" formControlName="Power" placeholder="Power" class="form-control"
-                      name="Power">
-                    <div *ngIf="submited && formCheck.Power.errors">
-                      <div *ngIf="formCheck.Power.errors.required">
-                        <label for="" class="msj">Requiere KILÓMETROS</label>
-                      </div>
+                  <input type="text" formControlName="IMEI" placeholder="IMEI" class="form-control" name="IMEI">
+                  <div *ngIf="submited && formCheck.IMEI.errors">
+                    <div *ngIf="formCheck.IMEI.errors.required">
+                      <label for="" class="text-danger">Requiere Ime</label>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <div class="form-group">
-                      <input type="number" formControlName="Engine" placeholder="Engine" class="form-control"
-                        name="Engine">
-                      <div *ngIf="submited && formCheck.Engine.errors">
-                        <div *ngIf="formCheck.Engine.errors.required">
-                          <label for="" class="msj">Requiere KILÓMETROS</label>
-                        </div>
-                      </div>
-                    </div>
+              <div class="col-md-6">
 
                 <div class="form-group">
-                    <input type="number" formControlName="Transmition" placeholder="Kilómetros" class="form-control"
-                      name="Transmition">
-                    <div *ngIf="submited && formCheck.Transmition.errors">
-                      <div *ngIf="formCheck.Transmition.errors.required">
-                        <label for="" class="msj">Requiere KILÓMETROS</label>
-                      </div>
+                  <input type="number" formControlName="Year" placeholder="Año" class="form-control" name="Year">
+                  <div *ngIf="submited && formCheck.Year.errors">
+                    <div *ngIf="formCheck.Year.errors.required">
+                      <label for="" class="text-danger">Requiere Año</label>
                     </div>
                   </div>
+                </div>
 
+                <div class="form-group">
+                  <input type="number" formControlName="Power" placeholder="Potencia" class="form-control" name="Power">
+                  <div *ngIf="submited && formCheck.Power.errors">
+                    <div *ngIf="formCheck.Power.errors.required">
+                      <label for="" class="text-danger">Requiere Potencia</label>
+                    </div>
+                  </div>
+                </div>
 
-              <button type="button" id="toCreate" (click)="toCreate()" class="btn btn-primary ">Crear</button>
-            </form>
-          </div>
+                <div class="form-group">
+                  <input type="number" formControlName="Engine" placeholder="Motor" class="form-control" name="Engine">
+                  <div *ngIf="submited && formCheck.Engine.errors">
+                    <div *ngIf="formCheck.Engine.errors.required">
+                      <label for="" class="text-danger">Requiere Motor</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="number" formControlName="Transmition" placeholder="Kilómetros" class="form-control"
+                    name="Transmition">
+                  <div *ngIf="submited && formCheck.Transmition.errors">
+                    <div *ngIf="formCheck.Transmition.errors.required">
+                      <label for="" class="text-danger">Requiere KILÓMETROS</label>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" id="toCreate" (click)="toCreate()"
+                  class="btn btn-primary btnRegister">Registar</button>
+
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

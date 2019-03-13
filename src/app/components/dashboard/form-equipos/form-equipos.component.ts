@@ -37,9 +37,10 @@ export class FormEquiposComponent implements OnInit {
     if (this.formEquipos.invalid) {
       return;
     }
-    console.log(this.formEquipos.value)
-    this.api.login(this.formEquipos.value).subscribe(response => {
-        this.router.navigateByUrl('register/login');
+    // this.formEquipos.value.Unit = [parseInt(this.formEquipos.value.Unit)]
+    console.log('Create unit: ', this.formEquipos.value)
+    this.api.toCreateDevice(this.formEquipos.value, JSON.parse(localStorage.getItem('userData')).token).subscribe(response => {
+        this.router.navigateByUrl('views/equipos');
     }, error => {
       console.log(error)
     });

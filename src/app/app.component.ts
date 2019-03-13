@@ -21,4 +21,8 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  isAuth(){
+    return this.api.isAuthenticated()
+  }
+
 }

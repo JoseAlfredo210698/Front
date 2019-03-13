@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav *ngIf="isAuth()" class="navbar navbar-expand-lg text-white navbar-dark static-top" style="background: -webkit-linear-gradient(left, #372ead, #160f7a);">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img style="width: 40px; height: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Map_pin_icon.svg/752px-Map_pin_icon.svg.png" alt="">
+      <img style="width: 60px; height: 50px; " src="http://ensaut.cl/wp-content/uploads/2015/10/Maps.png" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
             Perfil
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Ver Perfil</a>
+            <a class="dropdown-item" href="views/profile">Ver Perfil</a>
             <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
           </div>
         </li>
